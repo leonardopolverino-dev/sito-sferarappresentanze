@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sfera Rappresentanze — Serramenti e infissi in Abruzzo</title>
+<meta name="description" content="Sfera Rappresentanze S.a.s. — agenzia di rappresentanze per serramenti e infissi. Al fianco di rivenditori, serramentisti e imprese in Abruzzo con i marchi di primarie aziende italiane.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%232F3438' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --carta: #F7F6F3;
+    --antracite: #2F3438;
+    --grafite: #565D63;
+    --alluminio: #C8CBCD;
+    --rovere: #B5803C;
+    --vetro: #EDF0F1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', system-ui, sans-serif;
+    background: var(--carta);
+    color: var(--antracite);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Il telaio: la pagina dentro una cornice, come un serramento */
+  .telaio {
+    position: fixed;
+    inset: 14px;
+    border: 1.5px solid var(--antracite);
+    pointer-events: none;
+    z-index: 10;
+  }
+  .telaio::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--alluminio);
+  }
+
+  .pagina {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 56px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .marchio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sfera-glifo {
+    width: 26px;
+    height: 26px;
+    border: 4px solid var(--antracite);
+    border-radius: 50%;
+    flex: none;
+  }
+  .marchio-testo {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .marchio-testo small {
+    display: block;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.34em;
+    color: var(--grafite);
+  }
+
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .occhiello {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rovere);
+    margin-bottom: 26px;
+  }
+  h1 {
+    font-size: clamp(38px, 6.5vw, 68px);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    max-width: 15ch;
+  }
+  .sottotitolo {
+    margin-top: 28px;
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--grafite);
+    max-width: 56ch;
+  }
+  .azioni { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .cta {
+    display: inline-block;
+    background: var(--antracite);
+    color: var(--carta);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    padding: 15px 30px;
+    transition: background 0.2s ease;
+  }
+  .cta:hover, .cta:focus-visible { background: var(--rovere); }
+  .cta:focus-visible { outline: 2px solid var(--antracite); outline-offset: 3px; }
+  .email-testo {
+    font-size: 14px;
+    color: var(--grafite);
+    letter-spacing: 0.02em;
+  }
+  .email-testo a { color: var(--antracite); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Banda dati: tre voci che dicono chi siamo, senza fronzoli */
+  .banda {
+    background: var(--vetro);
+    border-top: 1.5px solid var(--antracite);
+    padding: 34px 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .banda dt {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--rovere);
+    margin-bottom: 8px;
+  }
+  .banda dd { font-size: 15px; color: var(--antracite); }
+
+  .nota-cantiere {
+    margin-top: 26px;
+    font-size: 13.5px;
+    color: var(--grafite);
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--alluminio);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--grafite);
+    letter-spacing: 0.03em;
+  }
+  @media (max-width: 720px) {
+    .telaio { inset: 8px; }
+    .pagina { padding: 40px 26px 30px; }
+    .hero { padding: 48px 0 40px; }
+    .banda { grid-template-columns: 1fr; gap: 22px; padding: 28px 24px; }
+  }
+
+  /* Ingresso sobrio */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > *, .banda, footer {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: entra 0.7s ease forwards;
+    }
+    .occhiello { animation-delay: 0.05s; }
+    h1 { animation-delay: 0.15s; }
+    .sottotitolo { animation-delay: 0.25s; }
+    .azioni { animation-delay: 0.35s; }
+    .banda { animation-delay: 0.45s; }
+    footer { animation-delay: 0.55s; }
+    @keyframes entra { to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+<div class="telaio" aria-hidden="true"></div>
+<div class="pagina">
+
+  <header>
+    <div class="marchio">
+      <span class="sfera-glifo" aria-hidden="true"></span>
+      <span class="marchio-testo">Sfera<small>Rappresentanze</small></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="occhiello">Agenzia di rappresentanze · Serramenti e infissi</p>
+      <h1>Il serramento italiano, rappresentato in Abruzzo.</h1>
+      <p class="sottotitolo">
+        Sfera Rappresentanze affianca rivenditori, serramentisti, falegnamerie e imprese
+        di costruzioni con i mandati di primarie aziende italiane del settore:
+        un unico riferimento per prodotti, listini e assistenza commerciale.
+      </p>
+      <div class="azioni">
+        <a class="cta" href="mailto:leonardo.polverino@gmail.com">Scrivi una email</a>
+        <p class="email-testo"><a href="mailto:leonardo.polverino@gmail.com">leonardo.polverino@gmail.com</a></p>
+      </div>
+    </section>
+
+    <dl class="banda">
+      <div>
+        <dt>Territorio</dt>
+        <dd>Abruzzo — L'Aquila, Pescara, Chieti, Teramo — e province limitrofe</dd>
+      </div>
+      <div>
+        <dt>Clienti</dt>
+        <dd>Rivenditori, serramentisti, falegnamerie, imprese di costruzioni</dd>
+      </div>
+      <div>
+        <dt>Mandati</dt>
+        <dd>Primarie aziende italiane di serramenti, oscuranti e complementi</dd>
+      </div>
+    </dl>
+
+    <p class="nota-cantiere">Il sito completo è in preparazione. Per informazioni, cataloghi e listini scriveteci: rispondiamo in giornata.</p>
+  </main>
+
+  <footer>
+    <span>Sfera Rappresentanze S.a.s. · Abruzzo</span>
+    <!-- TODO: aggiungere P.IVA appena fornita da Leo (obbligo di legge sui siti aziendali) -->
+    <span><a href="mailto:leonardo.polverino@gmail.com" style="color:inherit">leonardo.polverino@gmail.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
