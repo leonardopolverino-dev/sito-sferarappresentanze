@@ -294,14 +294,16 @@ body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--nott
 }
 /* Loghi: targhe bianche, come la targhetta sul campione */
 .marchio-targa, .marchi-targhe a {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   border: 1px solid var(--alluminio);
   box-shadow: 0 1px 0 var(--alluminio);
 }
-.marchio-targa { align-self: flex-start; height: 96px; width: min(300px, 100%); padding: 16px 24px; }
-.marchio-targa img, .marchi-targhe img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.marchio-targa { align-self: flex-start; height: 116px; width: min(340px, 100%); padding: 18px 28px; }
+/* Il logo riempie la targa senza mai uscirne, qualunque sia la sua forma */
+.marchio-targa img, .marchi-targhe img { width: 100%; height: 100%; object-fit: contain; }
 .marchi-targhe {
   list-style: none;
   margin-top: 40px;
@@ -528,7 +530,7 @@ footer .contenuto { display: flex; justify-content: space-between; gap: 16px; fl
   .marchio-scheda { min-height: auto; padding: 56px 0; opacity: 1; }
   .marchi-targhe { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .marchio-scheda { scroll-margin-top: calc(64px + 62.5vw * 0.9); }
-  .marchio-targa { height: 76px; width: 220px; padding: 12px 18px; }
+  .marchio-targa { height: 88px; width: 250px; padding: 14px 20px; }
   .passi { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .passi::before { top: 0; bottom: 0; left: 27px; right: auto; width: 1.5px; height: auto; transform: scaleY(0); transform-origin: top; }
   .visto .passi::before { transform: scaleY(1); }
