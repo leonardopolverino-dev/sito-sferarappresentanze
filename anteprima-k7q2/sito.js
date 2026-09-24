@@ -323,8 +323,59 @@ function campionePVC() {
   return centra(g, L);
 }
 
-// Biemme — alluminio a taglio termico
+// Biemme — sezione REALE della Inversa (telaio Elle), ricavata dal disegno tecnico Biemme:
+// le forme in millimetri stanno in campioni/biemme_inversa.json. Se il file non arriva,
+// resta il campione disegnato a mano (campioneAlluminioSemplice).
+const MAT_INVERSA = {
+  alluminio_telaio: MAT.alluminioScuro,
+  alluminio: new THREE.MeshStandardMaterial({ color: 0x8d949a, roughness: 0.32, metalness: 0.85 }),
+  guarnizione: MAT.guarnizione,
+  vetro: MAT.vetro,
+  ferramenta: new THREE.MeshStandardMaterial({ color: 0xc8b46a, roughness: 0.35, metalness: 0.85 }), // zincatura gialla
+  sigillante: MAT.poliammide,
+};
 function campioneAlluminio() {
+  const contenitore = new THREE.Group();
+  contenitore.userData.profilo = true;
+  contenitore.userData.scala = 1.35;       // più grande: la sezione è il protagonista
+  contenitore.userData.mostraSezione = true; // oscilla mostrando sempre la sezione
+  const provvisorio = campioneAlluminioSemplice().children[0];
+  contenitore.add(provvisorio);
+  fetch('campioni/biemme_inversa.json')
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(dati => {
+      const L = 60;
+      const g = new THREE.Group();
+      for (const pezzo of dati.pezzi) {
+        const mat = MAT_INVERSA[pezzo.materiale] || MAT.alluminio;
+        for (const f of pezzo.forme) {
+          const forma = poligono(f.contorno);
+          for (const buco of f.fori) {
+            const p = new THREE.Path();
+            buco.forEach(([x, y], i) => (i ? p.lineTo(x, y) : p.moveTo(x, y)));
+            p.closePath();
+            forma.holes.push(p);
+          }
+          const geo = new THREE.ExtrudeGeometry(forma, { depth: L, bevelEnabled: false, curveSegments: 4 });
+          geo.scale(MM, MM, MM);
+          const m = new THREE.Mesh(geo, mat);
+          m.castShadow = pezzo.materiale !== 'vetro';
+          m.receiveShadow = true;
+          g.add(m);
+        }
+      }
+      const box = new THREE.Box3().setFromObject(g);
+      const c = box.getCenter(new THREE.Vector3());
+      g.children.forEach(m => m.position.sub(c));
+      contenitore.remove(provvisorio);
+      contenitore.add(g);
+    })
+    .catch(e => console.warn('Sezione Inversa non caricata, resta il campione semplice', e));
+  return contenitore;
+}
+
+// Campione semplice di riserva: alluminio a taglio termico disegnato a mano
+function campioneAlluminioSemplice() {
   const g = new THREE.Group();
   const L = 110;
   const esterno = poligono([[0, 0], [26, 0], [26, 90], [8, 90], [8, 102], [0, 102]]);
@@ -584,10 +635,11 @@ function scenaCampionario() {
       o.visible = s > 0.01;
       if (!o.visible) return;
       const e = esci(s);
-      const base = o.userData.profilo ? 0.82 : 1;
+      const base = o.userData.scala || (o.userData.profilo ? 0.82 : 1);
       o.scale.setScalar(base * (0.55 + 0.45 * e));
       o.position.y = (1 - e) * -0.8;
-      if (o.userData.fermaRotazione) o.rotation.y = Math.sin(giro.angolo * 0.5) * 0.35 + (1 - e) * 1.2;
+      if (o.userData.mostraSezione) o.rotation.set(0.2, -0.38 + Math.sin(giro.angolo * 0.9) * 0.3 + (1 - e) * 1.2, 0);
+      else if (o.userData.fermaRotazione) o.rotation.y = Math.sin(giro.angolo * 0.5) * 0.35 + (1 - e) * 1.2;
       else if (o.userData.profilo) o.rotation.set(0.28, giro.angolo + (1 - e) * 1.6, 0);
       else o.rotation.y = Math.sin(giro.angolo * 0.6) * 0.5 + (1 - e) * 1.4;
       if (o.userData.anima) o.userData.anima(t);
