@@ -513,6 +513,10 @@ footer {
   border-top: 1px solid #30363B;
 }
 footer .contenuto { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer a, .modulo-nota a { color: inherit; text-underline-offset: 3px; }
+footer a:hover, .modulo-nota a:hover { color: var(--rovere-chiaro); }
+/* Segnaposto dei dati ancora da ricevere: ben visibili finché la bozza non è completa */
+.da-completare { background: #F3E3C7; color: #7A5319; padding: 0 5px; font-weight: 600; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {

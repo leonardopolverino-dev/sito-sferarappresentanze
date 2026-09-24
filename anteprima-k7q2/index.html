@@ -8,14 +8,13 @@
 <title>Sfera Rappresentanze — Serramenti, schermature e porte per Abruzzo e Marche</title>
 <meta name="description" content="Sfera Rappresentanze S.a.s.: agenzia di rappresentanza per rivenditori, serramentisti e imprese in Abruzzo e nelle Marche. Elledi, Biemme, Finnova, TBK, Lupak Metal, Manuello Design.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%232F3438' stroke-width='4'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<!-- Carattere e libreria 3D ospitati sul sito stesso: nessun servizio esterno riceve i dati dei visitatori -->
+<link rel="stylesheet" href="risorse/font/archivo.css">
 <link rel="stylesheet" href="sito.css">
 <script type="importmap">
 { "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  "three": "./risorse/three/three.module.min.js",
+  "three/addons/environments/": "./risorse/three/"
 } }
 </script>
 </head>
@@ -342,7 +341,7 @@
         <label>Telefono<input name="telefono" type="tel" autocomplete="tel"></label>
         <label>Di cosa avete bisogno<textarea name="messaggio" required placeholder="Es. listino Elledi, campionario porte Manuello, offerta per un cantiere a Pescara"></textarea></label>
         <button class="bottone" type="submit">Prepara l'email</button>
-        <p class="modulo-nota">Il modulo apre il vostro programma di posta con il messaggio già compilato: nessun dato viene salvato su questo sito.</p>
+        <p class="modulo-nota">Il modulo apre il vostro programma di posta con il messaggio già compilato: nessun dato viene salvato su questo sito. Come trattiamo i dati che ci scrivete: <a href="privacy.html">informativa privacy</a>.</p>
       </form>
     </div>
   </section>
@@ -350,8 +349,8 @@
 
 <footer>
   <div class="contenuto">
-    <span>Sfera Rappresentanze S.a.s. · P.IVA IT02371830445</span>
-    <span>Abruzzo e Marche · info@sferarappresentanze.it</span>
+    <span><span class="da-completare">[Ragione sociale completa]</span> · Sede legale <span class="da-completare">[indirizzo]</span> · P.IVA IT02371830445 · REA <span class="da-completare">[numero]</span></span>
+    <span><a href="mailto:info@sferarappresentanze.it">info@sferarappresentanze.it</a> · <a href="privacy.html">Privacy e cookie</a></span>
   </div>
 </footer>
 
