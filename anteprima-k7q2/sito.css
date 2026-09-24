@@ -284,13 +284,41 @@ body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--nott
 }
 .marchio-scheda.attiva { opacity: 1; }
 .marchio-nome {
-  font-size: clamp(44px, 6vw, 88px);
+  margin-top: 26px;
+  font-size: clamp(36px, 4.4vw, 64px);
   font-variation-settings: 'wdth' 125;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: .95;
   color: var(--antracite);
 }
+/* Loghi: targhe bianche, come la targhetta sul campione */
+.marchio-targa, .marchi-targhe a {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--alluminio);
+  box-shadow: 0 1px 0 var(--alluminio);
+}
+.marchio-targa { align-self: flex-start; height: 96px; width: min(300px, 100%); padding: 16px 24px; }
+.marchio-targa img, .marchi-targhe img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.marchi-targhe {
+  list-style: none;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+.marchi-targhe a {
+  height: 84px; padding: 14px 16px;
+  transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+}
+.marchi-targhe a:hover, .marchi-targhe a:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--antracite);
+  box-shadow: 0 6px 0 var(--rovere);
+}
+.marchio-scheda { scroll-margin-top: 90px; }
 .marchio-sede { margin-top: 14px; font-size: 15px; color: var(--grafite); }
 .marchio-sede b { color: var(--rovere); font-weight: 600; }
 .marchio-descrizione { margin-top: 22px; font-size: 18px; max-width: 46ch; }
@@ -498,6 +526,9 @@ footer .contenuto { display: flex; justify-content: space-between; gap: 16px; fl
   .palco-cornice { max-height: none; aspect-ratio: 16 / 10; }
   .marchi-elenco { order: 2; }
   .marchio-scheda { min-height: auto; padding: 56px 0; opacity: 1; }
+  .marchi-targhe { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .marchio-scheda { scroll-margin-top: calc(64px + 62.5vw * 0.9); }
+  .marchio-targa { height: 76px; width: 220px; padding: 12px 18px; }
   .passi { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .passi::before { top: 0; bottom: 0; left: 27px; right: auto; width: 1.5px; height: auto; transform: scaleY(0); transform-origin: top; }
   .visto .passi::before { transform: scaleY(1); }
