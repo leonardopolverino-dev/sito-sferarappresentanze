@@ -77,23 +77,19 @@ body.su-chiaro .barra { color: var(--antracite); }
 .barra.compatta { background: color-mix(in srgb, var(--carta) 82%, transparent); backdrop-filter: blur(10px); color: var(--antracite); }
 body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--notte) 78%, transparent); color: var(--carta); }
 
-.marchio { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.sfera-glifo {
-  width: 24px; height: 24px;
-  border: 4px solid currentColor;
-  border-radius: 50%;
-  flex: none;
-}
+.marchio { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+/* Simbolo «sfera-finestra»: telaio nel colore della barra, vetro rovere */
+.sfera-glifo { width: 44px; height: 44px; flex: none; }
 .marchio-testo {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 25px;
   letter-spacing: 0.2em;
   line-height: 1.15;
 }
 .marchio-testo small {
   display: block;
   font-weight: 500;
-  font-size: 9.5px;
+  font-size: 12.5px;
   letter-spacing: 0.3em;
   opacity: .75;
 }
@@ -548,6 +544,11 @@ footer a:hover, .modulo-nota a:hover { color: var(--rovere-chiaro); }
   body { font-size: 16px; }
   .telaio { inset: 6px; }
   .barra { top: 6px; left: 6px; right: 6px; padding: 12px 16px; }
+  /* Sul telefono il marchio resta alla misura di prima (andava bene) */
+  .marchio { gap: 12px; }
+  .sfera-glifo { width: 26px; height: 26px; }
+  .marchio-testo { font-size: 16px; }
+  .marchio-testo small { font-size: 9.5px; }
   .menu { display: none; }
   .menu.aperto {
     display: grid; position: fixed; top: 70px; left: 6px; right: 6px;

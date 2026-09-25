@@ -31,3 +31,20 @@ quote di riferimento per la scala (qui 71 x 80 mm) e le zone delle linee di quot
 Metodo: materiali dal colore delle linee; metallo/aria con il conteggio pari-dispari dei bordi
 (profili disegnati a linea singola) e la regola delle pareti sottili (telaio a doppia linea);
 controllo visivo sovrapponendo la ricostruzione all'originale. Richiede `opencv-python-headless`.
+
+## Logo «sfera-finestra» (dal 25/09/2026)
+
+Scelto da Leo tra 4 proposte: cerchio con montante e traverso, un vetro color rovere (#B5803C),
+telaio antracite (#2F3438) su fondo chiaro o carta (#F7F6F3) su fondo scuro. Scritta in Archivo
+(SFERA 700, RAPPRESENTANZE 500, spaziate come la testata del sito).
+
+- `risorse/logo/sfera-simbolo.svg` — icona del browser (si schiarisce da sola col tema scuro)
+- `risorse/logo/sfera-logo*.svg` — logo completo: colori, negativo, nero (timbro/fax); scritta in
+  tracciati, quindi identico anche dove Archivo non c'è
+- `risorse/logo/png/` — firma email (`sfera-firma-email.png`, da mostrare a 220 px), logo 1200 px,
+  simbolo 512, icone app 180/192/512 con fondo carta
+- Rigenerare: `python strumenti/genera_logo.py` poi `python strumenti/esporta_logo_png.py`
+  (serve `fonttools` + `brotli` e Playwright)
+- Nel sito il simbolo è **in linea** nell'HTML (telaio = `currentColor`, segue il colore della
+  barra). Misura: su PC simbolo 44 px e SFERA 25 px; sotto i 720 px resta 26/16 (andava già bene).
+- Lo stesso simbolo è nel gestionale (`templates/_sfera_simbolo.html`, icone PWA, favicon).
