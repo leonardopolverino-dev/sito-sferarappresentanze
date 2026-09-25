@@ -16,9 +16,7 @@ Nato come bozza nascosta in `anteprima-k7q2/` (24/09), promosso a home il 25/09 
   con un campione per marchio; movimento ridotto rispettato; senza WebGL resta leggibile),
   `loghi/`, `campioni/`, `risorse/` (font, three, logo). `robots.txt` + `sitemap.xml`.
 - `anteprima-k7q2/` resta solo come **rimando** alla home e alla privacy (link già condivisi).
-- Contenuti dei sei marchi presi dai loro siti ufficiali il 24/09/2026. Loghi e sezione Biemme
-  pubblicati **senza ok scritto dei marchi** (scelta di Leo, 25/09: da agente è prassi).
-- Numero clienti tolto (decisione Leo 25/09): la voce dice «Rivenditori, serramentisti e imprese».
+- Contenuti dei sei marchi presi dai loro siti ufficiali il 24/09/2026.
 - Se si aggiungono Analytics, mappe o video di terzi → serve il banner con consenso cookie.
 
 ## Sezioni reali nel campionario 3D (dal 24/09/2026)
@@ -47,3 +45,11 @@ telaio antracite (#2F3438) su fondo chiaro o carta (#F7F6F3) su fondo scuro. Scr
 - Nel sito il simbolo è **in linea** nell'HTML (telaio = `currentColor`, segue il colore della
   barra). Misura: su PC simbolo 44 px e SFERA 25 px; sotto i 720 px resta 26/16 (andava già bene).
 - Lo stesso simbolo è nel gestionale (`templates/_sfera_simbolo.html`, icone PWA, favicon).
+
+## Visibilità (motori di ricerca e assistenti AI) — dal 25/09/2026
+
+- `index.html`: tag Open Graph (anteprima dei link: `risorse/logo/png/sfera-anteprima-social.png`,
+  rigenerabile con `strumenti/esporta_anteprima_social.py`) e dati strutturati schema.org
+  (Organization + WebSite: P.IVA, territorio, marchi, contatti) — tengono distinta Sfera dagli omonimi.
+- `llms.txt`: scheda testuale per gli assistenti AI. `robots.txt` + `sitemap.xml`.
+- Se cambiano marchi, territorio o contatti: aggiornare INSIEME testo del sito, dati strutturati e `llms.txt`.
