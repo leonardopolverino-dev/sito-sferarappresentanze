@@ -1,4 +1,4 @@
-// Sfera Rappresentanze — bozza sito: scene 3D e movimento
+// Sfera Rappresentanze — sito: scene 3D e movimento
 // Due scene Three.js: (1) la finestra che si apre sul Gran Sasso, guidata dallo scorrimento;
 // (2) il "campionario": un campione 3D per ogni marchio, che cambia mentre si scorre.
 import * as THREE from 'three';

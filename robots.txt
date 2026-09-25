@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /anteprima-k7q2/
+
+Sitemap: https://www.sferarappresentanze.it/sitemap.xml

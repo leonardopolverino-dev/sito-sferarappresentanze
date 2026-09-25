@@ -1,26 +1,25 @@
 # Sito Sfera Rappresentanze
 
-Home page provvisoria di **Sfera Rappresentanze S.a.s.** — agenzia di rappresentanze
-per serramenti e infissi in Abruzzo.
+Sito di **Sfera Rappresentanze S.a.s.** — agenzia di rappresentanze per serramenti, schermature
+e porte in Abruzzo e nelle Marche.
 
 - Pubblicato con GitHub Pages su https://www.sferarappresentanze.it
 - Dominio registrato su Register.it, DNS: CNAME `www` → GitHub Pages
-- Pagina statica singola (`index.html`), nessuna build, nessuna dipendenza server
+- Statico, nessuna build, nessun servizio esterno (carattere e three.js ospitati qui, 0 cookie)
 
-Il sito completo è in preparazione; questa pagina fa da presenza ufficiale nel frattempo.
+## Sito completo — PUBBLICO dal 25/09/2026
 
-## Bozza del sito completo (24/09/2026)
+Nato come bozza nascosta in `anteprima-k7q2/` (24/09), promosso a home il 25/09 su decisione di Leo.
 
-Cartella `anteprima-k7q2/` → https://www.sferarappresentanze.it/anteprima-k7q2/
-
-- Pagina **non collegata** dalla home ed esclusa dai motori (`noindex`). Il repo è pubblico:
-  la pagina è nascosta, non segreta.
-- File: `index.html` (contenuti), `sito.css` (stile, stessa identità della home), `sito.js`
-  (scene 3D con Three.js da jsDelivr: finestra che si apre sul Gran Sasso, campionario 3D
-  con un campione per marchio; movimento ridotto rispettato; senza WebGL resta leggibile).
-- Contenuti dei sei marchi presi dai loro siti ufficiali il 24/09/2026.
-- Da confermare prima di renderla pubblica: numero clienti, servizi, loghi ufficiali.
-- Per pubblicarla davvero: spostarne il contenuto nella home (o linkarla) e togliere il `noindex`.
+- File: `index.html` (contenuti), `privacy.html` (informativa art. 13 GDPR, data 25/09/2026),
+  `sito.css`, `sito.js` (scene 3D Three.js: finestra che si apre sul Gran Sasso, campionario 3D
+  con un campione per marchio; movimento ridotto rispettato; senza WebGL resta leggibile),
+  `loghi/`, `campioni/`, `risorse/` (font, three, logo). `robots.txt` + `sitemap.xml`.
+- `anteprima-k7q2/` resta solo come **rimando** alla home e alla privacy (link già condivisi).
+- Contenuti dei sei marchi presi dai loro siti ufficiali il 24/09/2026. Loghi e sezione Biemme
+  pubblicati **senza ok scritto dei marchi** (scelta di Leo, 25/09: da agente è prassi).
+- Numero clienti tolto (decisione Leo 25/09): la voce dice «Rivenditori, serramentisti e imprese».
+- Se si aggiungono Analytics, mappe o video di terzi → serve il banner con consenso cookie.
 
 ## Sezioni reali nel campionario 3D (dal 24/09/2026)
 
