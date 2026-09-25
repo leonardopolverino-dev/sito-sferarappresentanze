@@ -34,6 +34,12 @@ img, svg, canvas { display: block; max-width: 100%; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--rovere); outline-offset: 3px; }
 
+/* Impaginazione su telefono: righe equilibrate nei titoli, niente parola sola
+   in fondo ai paragrafi, gruppi che non si spezzano (nomi, sigle, «post-vendita») */
+h1, h2, h3 { text-wrap: balance; }
+p, dd, li { text-wrap: pretty; }
+.unito { white-space: nowrap; }
+
 .titolo-largo {
   font-variation-settings: 'wdth' 125;
   font-weight: 700;
@@ -77,7 +83,7 @@ body.su-chiaro .barra { color: var(--antracite); }
 .barra.compatta { background: color-mix(in srgb, var(--carta) 82%, transparent); backdrop-filter: blur(10px); color: var(--antracite); }
 body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--notte) 78%, transparent); color: var(--carta); }
 
-.marchio { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.marchio { display: flex; align-items: center; gap: 16px; text-decoration: none; padding: 8px 0; margin: -8px 0; }
 /* Simbolo «sfera-finestra»: telaio nel colore della barra, vetro rovere */
 .sfera-glifo { width: 44px; height: 44px; flex: none; }
 .marchio-testo {
@@ -331,11 +337,11 @@ body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--nott
 .marchio-punti li { padding-left: 18px; position: relative; }
 .marchio-punti li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 1.5px; background: var(--rovere); }
 .marchio-link {
-  margin-top: 28px;
+  margin-top: 20px;
   align-self: flex-start;
   font-size: 15px; font-weight: 600; text-decoration: none;
   border-bottom: 1.5px solid var(--rovere);
-  padding: 8px 0 4px;
+  padding: 14px 0 6px;
 }
 .marchio-link:hover { color: var(--rovere); }
 
@@ -464,8 +470,7 @@ body:not(.su-chiaro) .barra.compatta { background: color-mix(in srgb, var(--nott
   font-weight: 650;
   text-decoration: none;
   border-bottom: 2px solid var(--rovere);
-  padding-bottom: 4px;
-  word-break: break-word;
+  padding: 6px 0 4px;
 }
 .email-grande:hover { color: var(--rovere-chiaro); }
 .modulo { display: grid; gap: 18px; }
@@ -538,6 +543,9 @@ footer a:hover, .modulo-nota a:hover { color: var(--rovere-chiaro); }
   body { font-size: 16px; }
   .telaio { inset: 6px; }
   .barra { top: 6px; left: 6px; right: 6px; padding: 12px 16px; }
+  /* La mail grande resta su una riga anche sui telefoni stretti (se proprio non ci sta,
+     va a capo solo dopo la @, grazie al <wbr> nell'HTML) */
+  .email-grande { font-size: min(20px, calc((100vw - 64px) / 15.2)); }
   /* Sul telefono il marchio resta alla misura di prima (andava bene) */
   .marchio { gap: 12px; }
   .sfera-glifo { width: 26px; height: 26px; }
